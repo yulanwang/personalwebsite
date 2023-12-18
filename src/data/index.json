@@ -4,19 +4,75 @@
             "id": "1",
             "src": "./img/tag-1.png",
             "title": "Front-End",
-            "description": "Proficient in developing interactive websites with React.js, styling with CSS, understanding of web markup with HTML5"
+            "description": "Proficient in developing interactive websites with React.js, styling with CSS, and understanding of web markup with HTML5"
         },
         {
-            "id": "3",
+            "id": "2",
             "src": "./img/pen-1.png",
             "title": "Back-End",
-            "description": "Lorem ipsum dolor sit amet, consectatur adipiscing elit. Suspendisse varius elim in eros elementum trsitique"
+            "description": "Experience in working with Supabase, connecting back-end to front-end, and implementing user-authentification"
         },
         {
             "id": "3",
             "src": "./img/data.png",
             "title": "Data Science",
-            "description": "Lorem ipsum dolor sit amet, consectatur adipiscing elit. Suspendisse varius elim in eros elementum trsitique"
+            "description": "Proficient in creating data visualizations with R, Python, and Tableau. Familiar with regression models, random forest, and natural language processing."
+        }
+    ],
+
+    "portfolio": [
+        {
+            "id": "1",
+            "src": "./img/university-threads.png",
+            "title": "University Threads",
+            "description": "A website for clothing exchange between college students in the greater Boston area. I worked on both the front-end build, css styling, and the back-end user authentification component of the login and signup pages",
+            "link": "View in Github: https://github.com/Oasis-NEU/f23-group14"
+
+        },
+        {
+            "id": "2",
+            "src": "./img/fighting-ed.png",
+            "title": "Eating Disorder Awareness Website",
+            "description": "A website to bring awareness to eating disorders. This was the first interactive webstie I built. I used HTML, CSS, and Javascript to build this website on Replit.",
+            "link": "View in Replit: https://fighting-ed.yulanwang.repl.co/"
+        },
+        {
+            "id": "3",
+            "src": "./img/sincerely-world.png",
+            "title": "Covid-19 Mental Health Dashboard",
+            "description": "A dashboard of data visualizations centered around the relationship between Covid-19 and mental health. Created using a combination of R's ggplot library and Tableau. Dashboard is compiled through Wix.",
+            "link": "View here: https://sincerelyprojects.wixsite.com/mental-health"
+        },
+        {
+            "id": "4", 
+            "src": "./img/nyc-gun.png",
+            "title": "NYC Gun-ownership Data Analysis Project",
+            "description": "A group data analysis project analyzing NYC gun-ownership and demographic factors. Using LASSO regression and random forest to abstract the most important variables in predicting gun-ownership. Presented our findings at the 2022 Women in Data Science Conference hosted by the University of Pennsylvania",
+            "link": "Read an article on our project here: https://globalyouth.wharton.upenn.edu/articles/a-data-project-explores-gun-ownership-in-new-york-city/" 
+        }
+    ], 
+
+    "experiences": [
+        {
+            "id": "1",
+            "title": "Oasis Member",
+            "dates": "Fall Semester 2023",
+            "description": "Worked in a group in developing our own interactive website University Threads. Attended weekly hack sessions. Utilized the sprint method in Agile product development.",
+            "link": "View in Github"
+        },
+        {
+            "id": "2",
+            "title": "Simply Neuroscience Department Co-director",
+            "dates": "May 2022 - Present",
+            "description": "Led a team of around 50 members on various projects: hosting workshops, editing educational videos, and creating resource databases.",
+            "link": "View here: https://www.simplyneuroscience.org/"
+        },
+        {
+            "id": "3",
+            "title": "Wharton Global Youth Data Science Summer Program",
+            "dates": "July 2021",
+            "description": "Participated in a two-week long summer program where I learned the basics of data science using R. Completed assignments analyzing baseball data, moneyball, crime, etc.",
+            "link": "Read an article on our project here: https://globalyouth.wharton.upenn.edu/articles/a-data-project-explores-gun-ownership-in-new-york-city/"
         }
     ]
 }

@@ -5,16 +5,15 @@ export default function HeroSection() {
                 <div className="hero--section--content">
                     <p className="section--title">Hey, I'm Yulan</p>
                     <h1 className="hero--section--title">
-                        <span className="hero--section-title--color">Full Stack</span>{" "}
+                        <span className="hero--section-title--color">Computer Science</span>{" "}
                         <br />
-                        Developer
+                        Student
                     </h1>
                     <p className="hero--section--description">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        <br /> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim iste quis nostrum.
+                        I study Computer Science with a minor in Mathematics at Northeastern University in Boston, MA. 
+                        <br /> I'm passionate about building inspiring websites, visualizing data for good, and applying natural language processing on social network data.
                     </p>
                 </div>
-                <button className="btn btn-primary">Get in Touch</button>
             </div>
             <div className="hero--section--img">
                 <img src="./img/hero-image.png" alt="Hero Section" />
