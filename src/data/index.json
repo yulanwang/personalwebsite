@@ -1,0 +1,22 @@
+{
+    "skills": [
+        {
+            "id": "1",
+            "src": "./img/tag-1.png",
+            "title": "Front-End",
+            "description": "Proficient in developing interactive websites with React.js, styling with CSS, understanding of web markup with HTML5"
+        },
+        {
+            "id": "3",
+            "src": "./img/pen-1.png",
+            "title": "Back-End",
+            "description": "Lorem ipsum dolor sit amet, consectatur adipiscing elit. Suspendisse varius elim in eros elementum trsitique"
+        },
+        {
+            "id": "3",
+            "src": "./img/data.png",
+            "title": "Data Science",
+            "description": "Lorem ipsum dolor sit amet, consectatur adipiscing elit. Suspendisse varius elim in eros elementum trsitique"
+        }
+    ]
+}
