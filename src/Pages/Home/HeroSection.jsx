@@ -10,8 +10,8 @@ export default function HeroSection() {
                         Student
                     </h1>
                     <p className="hero--section--description">
-                        I study Computer Science with a minor in Mathematics at Northeastern University in Boston, MA. 
-                        <br /> I'm passionate about building inspiring websites, visualizing data for good, and applying natural language processing on social network data.
+                        I'm a second year student study Computer Science and Mathematics at Northeastern University in Boston, MA. 
+                        <br /> I'm passionate about building efficient software, applying data science to financial data, and utilizing natural language processing.
                     </p>
                 </div>
             </div>
