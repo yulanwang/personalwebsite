@@ -19,12 +19,12 @@ p {
 }
 
 :root {
-  --primary: #C41247 ;
-  --heading--color: #1C191A;
-  --bg-shade: #FFF8FA;
-  --github: #e62872;
-  --darkred: #52051C;
-  --black: #000000;
+  --primary: #000066 ;
+  --heading--color: #000066;
+  --bg-shade: #e7e7f6 ;
+  --github:#000066;
+  --darkred: #000066;
+  --black: #363651;
   --white: #ffffff;
 }
 
@@ -84,8 +84,8 @@ p {
   gap: 16px;
 }
 .btn-github:hover {
-  color: var(--primary);
-  background-color: var(--white);
+  color: var(--white);
+  background-color: var(--black);
 }
 .github {
   text-decoration: none;
@@ -251,8 +251,8 @@ h3 {
   display: flex;
 }
 .hero--section--img > img {
-  width: 100%;
-  height: 100%;
+  width: 65%;
+  height: 65%;
 }
 
 /* Hero Section Style Ends */
@@ -337,8 +337,8 @@ h3 {
   grid-template-columns: repeat(2, 1fr);
 }
 .about--section--img > img {
-  width: 100%;
-  height: 100%;
+  width: 75%;
+  height: 75%;
 }
 /* About Us Ends*/
 

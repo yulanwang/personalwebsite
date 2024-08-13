@@ -26,7 +26,7 @@
             "src": "./img/university-threads.png",
             "title": "University Threads",
             "description": "A website for clothing exchange between college students in the greater Boston area. I worked on both the front-end build, css styling, and the back-end user authentification component of the login and signup pages",
-            "link": "View in Github: https://github.com/Oasis-NEU/f23-group14"
+            "link": "https://github.com/Oasis-NEU/f23-group14"
 
         },
         {
@@ -34,21 +34,21 @@
             "src": "./img/fighting-ed.png",
             "title": "Eating Disorder Awareness Website",
             "description": "A website to bring awareness to eating disorders. This was the first interactive webstie I built. I used HTML, CSS, and Javascript to build this website on Replit.",
-            "link": "View in Replit: https://fighting-ed.yulanwang.repl.co/"
+            "link": "https://fighting-ed.yulanwang.repl.co/"
         },
         {
             "id": "3",
             "src": "./img/sincerely-world.png",
             "title": "Covid-19 Mental Health Dashboard",
             "description": "A dashboard of data visualizations centered around the relationship between Covid-19 and mental health. Created using a combination of R's ggplot library and Tableau. Dashboard is compiled through Wix.",
-            "link": "View here: https://sincerelyprojects.wixsite.com/mental-health"
+            "link": "https://sincerelyprojects.wixsite.com/mental-health"
         },
         {
             "id": "4", 
             "src": "./img/nyc-gun.png",
             "title": "NYC Gun-ownership Data Analysis Project",
             "description": "A group data analysis project analyzing NYC gun-ownership and demographic factors. Using LASSO regression and random forest to abstract the most important variables in predicting gun-ownership. Presented our findings at the 2022 Women in Data Science Conference hosted by the University of Pennsylvania",
-            "link": "Read an article on our project here: https://globalyouth.wharton.upenn.edu/articles/a-data-project-explores-gun-ownership-in-new-york-city/" 
+            "link": "https://globalyouth.wharton.upenn.edu/articles/a-data-project-explores-gun-ownership-in-new-york-city/" 
         }
     ], 
 
@@ -72,7 +72,7 @@
             "title": "Wharton Global Youth Data Science Summer Program",
             "dates": "July 2021",
             "description": "Participated in a two-week long summer program where I learned the basics of data science using R. Completed assignments analyzing baseball data, moneyball, crime, etc.",
-            "link": "Read an article on our project here: https://globalyouth.wharton.upenn.edu/articles/a-data-project-explores-gun-ownership-in-new-york-city/"
+            "link": "https://globalyouth.wharton.upenn.edu/articles/a-data-project-explores-gun-ownership-in-new-york-city/"
         }
     ]
 }

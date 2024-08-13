@@ -16,7 +16,7 @@ export default function HeroSection() {
                 </div>
             </div>
             <div className="hero--section--img">
-                <img src="./img/hero-image.png" alt="Hero Section" />
+                <img src="./img/Wang,Yulan copy Background Removed.png" alt="Hero Section" />
             </div>
 
         </section>
