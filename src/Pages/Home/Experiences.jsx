@@ -14,8 +14,9 @@ export default function Experiences() {
                             <h3 className="experiences--section--title">{item.title}</h3>
                             <p className="experiences--section--dates">{item.dates}</p>
                             <p className="experiences--section--description">{item.description}</p>
+                            <a href={item.link} target="_blank" rel="noopener noreferrer">
                             <p className="text-sm experiences--link">
-                                {item.link}
+                                Read more
                                 <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"
@@ -32,6 +33,7 @@ export default function Experiences() {
                                     />
                                 </svg>
                             </p>
+                            </a>
                         </div>
                     </div>
                 ))}
