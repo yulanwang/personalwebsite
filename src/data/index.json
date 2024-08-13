@@ -55,24 +55,24 @@
     "experiences": [
         {
             "id": "1",
+            "title": "Teaching Assistant - Fundamentals of Computer Science 1",
+            "dates": "Fall 2024 - Present",
+            "description": "Worked in a software developer team to design the frontend of the full-stack web application, Finishline, for automation of club management. Implement and maintain Finishline features with Typescript and React to respond to the needs of other subteams",
+            "link":  "https://catalog.northeastern.edu/course-descriptions/cs/"
+        },
+        {
+            "id": "2",
             "title": "Northeastern Electric Racing Software Developer",
-            "dates": "Spring Semester 2024 - Present",
+            "dates": "Spring 2024 - Present",
             "description": "Worked in a software developer team to design the frontend of the full-stack web application, Finishline, for automation of club management. Implement and maintain Finishline features with Typescript and React to respond to the needs of other subteams",
             "link":  "https://github.com/yulanwang"
         },
         {
-            "id": "2",
+            "id": "3",
             "title": "Oasis Member",
-            "dates": "Fall Semester 2023",
+            "dates": "Fall 2023",
             "description": "Worked in a group in developing our own interactive website University Threads. Attended weekly hack sessions. Utilized the sprint method in Agile product development.",
             "link": "https://github.com/yulanwang"
-        },
-        {
-            "id": "3",
-            "title": "Wharton Global Youth Data Science Summer Program",
-            "dates": "July 2021",
-            "description": "Participated in a two-week long summer program where I learned the basics of data science using R. Completed assignments analyzing baseball data, moneyball, crime, etc.",
-            "link": "https://globalyouth.wharton.upenn.edu/articles/a-data-project-explores-gun-ownership-in-new-york-city/"
         }
     ]
 }
