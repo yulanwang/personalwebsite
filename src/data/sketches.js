@@ -17,7 +17,7 @@ const sketches = [
       id: 3,
       title: "Angel in the Cathedral",
       description: "A slightly spooky angel-doll figure in the Cathedral Saint Saveur.",
-      imageUrl: "img/sketchbook/cathedral-doll.jpeg",
+      imageUrl: "/img/sketchbook/cathedral-doll.jpeg",
       referenceImage: "/img/sketchbook/cathedral-doll-real.jpeg",
     },
     {
@@ -143,8 +143,11 @@ const sketches = [
         id: 21, 
         title: "Paris Here and There",
         description: "Some more of my four days in paris.",
-        imageUrl: "/img/sketchbook/paris.jpeg",
-        referenceImage: "/img/sketchbook/paris-2.jpeg",
+        pages: [
+            "/img/sketchbook/paris.jpeg", 
+            "/img/sketchbook/paris-2.jpeg",
+        ],
+        referenceImage: null, 
     },
     {
         id: 22, 
@@ -213,8 +216,11 @@ const sketches = [
         id: 31, 
         title: "An Architectural Journey of Water in France",
         description: "Final project for the course.",
-        imageUrl: "/img/sketchbook/comic1.jpeg",
-        referenceImage: "/img/sketchbook/comic2.jpeg",
+        pages: [
+            "/img/sketchbook/comic1.jpeg",
+            "/img/sketchbook/comic2.jpeg",
+        ],
+        referenceImage: null, 
     },
     {
         id: 32, 

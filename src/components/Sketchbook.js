@@ -1,18 +1,48 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import sketches from "../data/sketches";
 import Contact from "./Contact";
-import Header from "./Header";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 Modal.setAppElement("#root");
+
+// set arrow components 
+
+// Corrected Arrow Components
+const NextArrow = ({ onClick }) => (
+    <div 
+        style={styles.arrowRight} 
+        onClick={(event) => {
+            event.stopPropagation(); // Prevent triggering the modal
+            onClick(); // Call the slider navigation function
+        }}>
+      &#8250;
+    </div>
+
+);
+  
+const PrevArrow = ({ onClick }) => (
+    <div 
+        style={styles.arrowLeft} 
+        onClick={(event) => {
+            event.stopPropagation(); // Prevent triggering the modal
+            onClick(); // Call the slider navigation function
+        }}>
+      &#8249;
+    </div>
+);
+  
 
 const Sketchbook = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedSketch, setSelectedSketch] = useState(null);
   const [hoveredSketch, setHoveredSketch] = useState(null);
   const [isImageEnlarged, setIsImageEnlarged] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const openModal = (sketch) => {
     setSelectedSketch(sketch);
@@ -27,13 +57,25 @@ const Sketchbook = () => {
     document.body.style.overflow = "auto"; // Re-enable page scrolling
   };
 
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  };
+
   const toggleImageSize = () => {
     setIsImageEnlarged((prev) => !prev); // Toggle enlarged state
   };
 
+
+
   return (
     <div style={styles.container}>
-
+      
       {/* Intro Section */}
       <section style={styles.intro}>
         <img
@@ -45,86 +87,129 @@ const Sketchbook = () => {
           <h1>Welcome to My Sketchbook</h1>
           <p>
             This is a collection of sketches I made during my journey in France.
-            Each piece represents a feeling, a moment, and things I saw that are precious to me.
-            Explore the artwork and read the stories behind each sketch.
+            Each piece represents a feeling, a moment, and things I saw that are
+            precious to me. Explore the artwork and read the stories behind each
+            sketch.
           </p>
         </div>
       </section>
 
+      {/* Sketch Cards */}
       <div style={styles.grid}>
         {sketches.map((sketch) => (
           <div
-          key={sketch.id}
-          style={styles.card}
-          onClick={() => openModal(sketch)}
-          onMouseEnter={() => setHoveredSketch(sketch.id)}
-          onMouseLeave={() => setHoveredSketch(null)}
-        >
-          <div style={styles.imageWrapper}>
-            {/* Conditionally render reference image or just show the sketch */}
-            {sketch.referenceImage && hoveredSketch === sketch.id ? (
-              <img
-                src={sketch.referenceImage}
-                alt={`${sketch.title} reference`}
-                style={styles.image}
-              />
-            ) : (
-              <img
-                src={sketch.imageUrl}
-                alt={`${sketch.title} sketch`}
-                style={styles.image}
-              />
-            )}
+            key={sketch.id}
+            style={{
+                ...styles.card,
+                ...(hoveredSketch === sketch.id ? styles.cardHover : {}),
+            }}
+            onClick={() => openModal(sketch)}
+            onMouseEnter={() => setHoveredSketch(sketch.id)}
+            onMouseLeave={() => setHoveredSketch(null)}
+          >
+
+              {/* Show reference image on hover if available */}
+              {sketch.pages ? (
+
+                    <Slider {...sliderSettings}>
+                        {sketch.pages.map((page, index) => (
+                        <img
+                            key={index}
+                            src={page}
+                            alt={`${sketch.title} page ${index + 1}`}
+                            style={styles.sliderImage}
+                        />
+                        ))}
+                    </Slider>
+              ) : (
+                  <img
+                    src={
+                        hoveredSketch === sketch.id && sketch.referenceImage
+                        ? sketch.referenceImage
+                        : sketch.imageUrl
+                    }
+                    alt={sketch.title}
+                    style={styles.image}
+                  />
+                )}
+            <h2 style={styles.sketchTitle}>{sketch.title}</h2>
           </div>
-          <h2 style={styles.sketchTitle}>{sketch.title}</h2>
-        </div>
         ))}
       </div>
 
       {/* Contact Section */}
-      <Contact /> {/* Include the Contact component here */}
+      <Contact />
 
-      {/* Animated Modal */}
+      {/* Modal */}
       <AnimatePresence>
         {modalIsOpen && selectedSketch && (
-            <motion.div
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
             style={styles.modalOverlay}
-            onClick={closeModal} // Close modal on overlay click
-            >
-            
+            onClick={closeModal}
+          >
             <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
               <h2>{selectedSketch.title}</h2>
-              <div
-                style={{
-                  ...styles.imageWrapper,
-                  ...(isImageEnlarged ? styles.enlargedImageWrapper : {}),
-                }}
-                onClick={toggleImageSize}
-              >
-                <img
-                  src={selectedSketch.imageUrl}
-                  alt={`${selectedSketch.title} sketch`}
+
+              {/* Slideshow for Multi-Page Sketches in Modal */}
+              {selectedSketch.pages ? (
+                <Slider {...sliderSettings}>
+                  {selectedSketch.pages.map((page, index) => (
+                    <img
+                      key={index}
+                      src={page}
+                      alt={`${selectedSketch.title} page ${index + 1}`}
+                      style={{
+                        ...styles.modalImage,
+                        ...(isImageEnlarged ? styles.enlargedImage : {}),
+                      }}
+                      onClick={toggleImageSize}
+                    />
+                  ))}
+                </Slider>
+              ) : (
+                // Single Image Sketch
+                <div
                   style={{
-                    ...styles.modalImage,
-                    ...(isImageEnlarged ? styles.enlargedImage : {}),
+                    ...styles.imageWrapper,
+                    ...(isImageEnlarged ? styles.enlargedImageWrapper : {}),
                   }}
-                />
-              </div>
+                  onClick={toggleImageSize}
+                >
+                  <img
+                    src={selectedSketch.imageUrl}
+                    alt={`${selectedSketch.title} sketch`}
+                    style={{
+                      ...styles.modalImage,
+                      ...(isImageEnlarged ? styles.enlargedImage : {}),
+                    }}
+                  />
+                </div>
+              )}
               <p style={styles.description}>{selectedSketch.description}</p>
-              <button onClick={closeModal} style={styles.closeButton}>
+              <button
+                style={{
+                    ...styles.closeButton,
+                    ...(isHovered ? styles.buttonHover : {}),
+                }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onClick={closeModal}
+              >
                 Close
               </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+      <div style={styles.grainOverlay}></div>
+      </div>
   );
 };
+
 
 const modalStyles = {
   overlay: {
@@ -151,42 +236,44 @@ const styles = {
         gap: "1.5rem",
         marginBottom: "2rem",
         padding: "1rem",
-        backgroundColor: "#fff",
+        backgroundColor: "#FFFAF5", // Secondary background
+        color: "#222222", // Text color
         borderRadius: "10px",
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
       },
     
     
-      introImage: {
+    introImage: {
         width: "50%", 
         height: "auto",
         borderRadius: "8px",
-      },
+    },
     
-      introText: {
+    introText: {
         width: "50%",
         fontSize: "1rem",
         color: "#333",
         textAlign: "left",
         lineHeight: "1.5",
-      },
+    },
     
 
     container: {
         padding: "0", // Remove padding for the container
         margin: "0",
-        fontFamily: "'Courier New', Courier, monospace",
-        backgroundColor: "#f4f4e8",
-        color: "#333",
+        fontFamily: "'DM Sans', sans-serif",
+        backgroundColor: "#F9F4F0", // Soft beige
+        color: "#222222", // Timeless dark for text
         maxWidth: "100vw", // Ensure the container spans the full viewport width
         overflowX: "hidden", // Prevent horizontal scrolling
     },
 
-  title: {
-    fontSize: "2rem",
-    textAlign: "center",
-    marginBottom: "1rem",
-  },
+    title: {
+        fontSize: "2rem",
+        textAlign: "center",
+        marginBottom: "1rem",
+        color: "#DAA520",
+    },
 
   grid: {
     display: "grid",
@@ -197,14 +284,41 @@ const styles = {
   },
 
   card: {
-    border: "1px solid #ddd",
+    border: "1px solid #EAE7DC", // Soft neutral border
     borderRadius: "10px",
-    backgroundColor: "#fff",
+    backgroundColor: "#FFFFFF", // Timeless white
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
     textAlign: "center",
     cursor: "pointer",
     transition: "transform 0.3s ease",
     width: "100%", // Ensure cards fill the available grid column space
+    overflow: "hidden", // Prevent content overflow
+    position: "relative",
+    color: "#F2F2F2",
+  },
+
+  cardHover: {
+    transform: "scale(1.03)",
+    boxShadow: "0px 8px 12px rgba(0, 0, 0, 0.2)",
+  },
+
+  cardTitle: {
+    fontSize: "1.2rem",
+    fontWeight: "600",
+    padding: "1rem",
+    backgroundColor: "rgb(255, 79, 0)", // Bold orange
+    color: "#FFFFFF", // White text
+  },
+
+
+  sliderImage: {
+    height: "300px",        // Constrain the image height to a consistent value
+    width: "100%",             // Automatically adjust width based on aspect ratio
+    objectFit: "contain",      // Ensure the whole image fits without distortion
+    borderRadius: "8px",       // Optional for rounded edges
+    transition: "transform 0.3s ease",
+    margin: "0 auto",   
+    backgroundColor: "#F3EDE3", // Neutral soft pink
   },
 
   sketchTitle: {
@@ -218,6 +332,8 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    height: "800px",
+    width: "100%",
     cursor: "pointer",
   },
 
@@ -236,9 +352,8 @@ const styles = {
 
   image: {
     width: "100%", // Fill the container
-    height: "auto", // Maintain aspect ratio
-    objectFit: "contain", // Ensure image scales without distortion
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", // Add subtle shadow
+    maxHeight: "300px", // Match height with slider for single images
+    objectFit: "contain", // Maintain aspect ratio
     transition: "transform 0.3s ease",
   },
 
@@ -247,7 +362,7 @@ const styles = {
     borderRadius: "8px",
     backgroundColor: "#fff",
     textAlign: "center",
-    fontFamily: "'Courier New', Courier, monospace", // Match font with global styles
+    fontFamily: "'DM Sans', sans-serif",
     fontSize: "1rem", // Adjust font size for readability
     color: "#333", // Match the text color with the page
     overflowY: "auto", // Allow scrolling inside the modal
@@ -287,13 +402,20 @@ const styles = {
 
   closeButton: {
     padding: "0.75rem 1.5rem",
-    backgroundColor: "#0077cc",
-    color: "white",
+    color: "#F2F2F2",
     border: "none",
     borderRadius: "5px",
     fontSize: "1rem",
     cursor: "pointer",
-    fontFamily: "'Courier New', Courier, monospace", // Match button font
+    fontFamily: "'DM Sans', sans-serif",
+    textShadow: "1px 1px 2px rgba(0, 0, 0, 0.8)",
+    transition: "background-color 0.3s ease",
+    backgroundColor: "#34A5A5", // Bright teal
+  },
+
+  buttonHover: {
+    backgroundColor: "#FFA07A", // Hover color
+    transform: "translateY(-2px)",
   },
 
   description: {
@@ -301,8 +423,50 @@ const styles = {
     color: "#555",
     marginTop: "1rem",
     textAlign: "center",
-    fontFamily: "'Courier New', Courier, monospace",
+    fontFamily: "'DM Sans', sans-serif",
   },
+
+  // style for arrows in sliders
+  
+  arrowRight: {
+    position: "absolute",
+    top: "50%",
+    right: "5px",
+    transform: "translateY(-50%)",
+    fontSize: "4rem",
+    color: "#0077cc",
+    cursor: "pointer",
+    zIndex: 2,
+  },
+
+  arrowLeft: {
+    position: "absolute",
+    top: "50%",
+    left: "5px",
+    transform: "translateY(-50%)",
+    fontSize: "4rem",
+    color: "white",
+    cursor: "pointer",
+    zIndex: 2,
+  },
+
+  grainOverlay: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    pointerEvents: "none", // Ensure it doesn't interfere with interactions
+    background: "url('/img/film-grain.png')", // Use a transparent grain texture
+    opacity: 0.15,
+    mixBlendMode: "overlay",
+    animation: "grain 1s steps(10) infinite",
+    zIndex: 1000, // Ensure it sits on top
+  },
+  flickerEffect: {
+    animation: "flicker 2s infinite",
+  },
+
 };
 
 export default Sketchbook;
