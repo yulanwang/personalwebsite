@@ -31,7 +31,7 @@ const Bio = () => {
         <div style={styles.topSection}>
           {/* Bio Text */}
           <div style={styles.textContainer}>
-            <h2 style={styles.heading}>Hello, it's Yulan.</h2>
+          <h2 style={styles.heading}>Hello, it's <span style={styles.headingName}>Yulan.</span></h2>
             <p style={styles.text}>
               I'm a Computer Science and Mathematics student. But I'm also an artist, maker, and reader.
             </p>
@@ -141,6 +141,11 @@ const styles = {
     fontSize: "3.8rem",
     marginBottom: "1rem",
     color: "var(--dark-text)",
+  },
+  headingName: {
+    fontSize: "3.8rem",
+    marginBottom: "1rem",
+    color: "var(--hover-accent)",
   },
   text: {
     fontSize: "2rem",
