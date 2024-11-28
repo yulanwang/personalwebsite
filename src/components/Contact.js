@@ -13,8 +13,8 @@ const styles = {
   section: {
     padding: "2rem 0",
     textAlign: "center",
-    backgroundColor: "#FFFAF5", // Light pastel background
-    borderTop: "1px solid #EAE7DC", // Subtle border at the top
+    backgroundColor: "#FFFFFF", // White background
+    borderTop: "1px solid #e0e0e0", // Subtle border at the top
     fontFamily: "'DM Sans', sans-serif",
   },
   heading: {

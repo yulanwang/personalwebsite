@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import MainPage from "./components/MainPage";
 import Contact from "./components/Contact";
 import Sketchbook from "./components/Sketchbook";
+import './App.css';
 // import MyReviews from "./components/MyReviews";
 
 const ScrollToHash = () => {
@@ -24,10 +25,12 @@ const ScrollToHash = () => {
 
 
 const App = () => (
+
   <Router>
     <div style={styles.container}>
       <Header />
       <ScrollToHash />
+      <div style={styles.gradientOverlay}></div>
       <main style={styles.main}>
         <Routes>
           {/* Main Page: Bio, Projects, Experiences */}
@@ -47,14 +50,29 @@ const App = () => (
 const styles = {
   container: {
     fontFamily: "'Courier New', Courier, monospace",
-    backgroundColor: "#f4f4e8",
+    backgroundColor: "#FFFFFF",
     color: "#3a3a3a",
     padding: "1rem",
+    position: "relative", // Required for pseudo-elements to work
+  },
+  gradientOverlay: {
+    content: '""',
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    background: "linear-gradient(to right, #1E3D34, #FFFFFF 30%, #FFFFFF 70%, #FFB6C1)",
+    zIndex: -1, // Push the gradient behind content
   },
   main: {
     margin: "0 auto",
-    maxWidth: "800px",
+    maxWidth: "75%",
+    backgroundColor: "#FFFFFF", // Ensure the middle stays white
+    padding: "2rem",
+    borderRadius: "12px", // Optional for cleaner edges
+    position: "relative",
   },
 };
-  
+
 export default App;

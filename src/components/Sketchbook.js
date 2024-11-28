@@ -236,10 +236,9 @@ const styles = {
         gap: "1.5rem",
         marginBottom: "2rem",
         padding: "1rem",
-        backgroundColor: "#FFFAF5", // Secondary background
-        color: "#222222", // Text color
+        backgroundColor: "#FFFFFF", // Secondary background
+        color: "var(--dark-text)", // Text color
         borderRadius: "10px",
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
       },
     
     
@@ -252,7 +251,7 @@ const styles = {
     introText: {
         width: "50%",
         fontSize: "1rem",
-        color: "#333",
+        color: "var(--dark-text)",
         textAlign: "left",
         lineHeight: "1.5",
     },
@@ -262,8 +261,8 @@ const styles = {
         padding: "0", // Remove padding for the container
         margin: "0",
         fontFamily: "'DM Sans', sans-serif",
-        backgroundColor: "#F9F4F0", // Soft beige
-        color: "#222222", // Timeless dark for text
+        backgroundColor: "#FFFFFF",
+        color: "var(--dark-text)", // Timeless dark for text
         maxWidth: "100vw", // Ensure the container spans the full viewport width
         overflowX: "hidden", // Prevent horizontal scrolling
     },
@@ -272,7 +271,8 @@ const styles = {
         fontSize: "2rem",
         textAlign: "center",
         marginBottom: "1rem",
-        color: "#DAA520",
+        color: "var(--dark-text)",
+        textShadow: "1px 1px 4px #1E3D34",
     },
 
   grid: {
@@ -284,22 +284,20 @@ const styles = {
   },
 
   card: {
-    border: "1px solid #EAE7DC", // Soft neutral border
-    borderRadius: "10px",
+    border: "1px solid #e0e0e0", // Soft neutral border
     backgroundColor: "#FFFFFF", // Timeless white
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
     textAlign: "center",
     cursor: "pointer",
     transition: "transform 0.3s ease",
     width: "100%", // Ensure cards fill the available grid column space
     overflow: "hidden", // Prevent content overflow
     position: "relative",
-    color: "#F2F2F2",
+    color: "var(--secondary-bg)",
   },
 
   cardHover: {
     transform: "scale(1.03)",
-    boxShadow: "0px 8px 12px rgba(0, 0, 0, 0.2)",
+    border: "2px solid var(--hover-accent)"
   },
 
   cardTitle: {
@@ -318,7 +316,7 @@ const styles = {
     borderRadius: "8px",       // Optional for rounded edges
     transition: "transform 0.3s ease",
     margin: "0 auto",   
-    backgroundColor: "#F3EDE3", // Neutral soft pink
+    backgroundColor: "var(--secondary-bg)", // Neutral soft pink
   },
 
   sketchTitle: {
@@ -397,24 +395,23 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     zIndex: 1000,
-    overflowY: "hidden", // Prevent scrolling in overlay
+    overflowY: "hidden", 
   },
 
   closeButton: {
     padding: "0.75rem 1.5rem",
-    color: "#F2F2F2",
+    color: "var(--dark-text)",
     border: "none",
     borderRadius: "5px",
     fontSize: "1rem",
     cursor: "pointer",
     fontFamily: "'DM Sans', sans-serif",
-    textShadow: "1px 1px 2px rgba(0, 0, 0, 0.8)",
     transition: "background-color 0.3s ease",
-    backgroundColor: "#34A5A5", // Bright teal
+    backgroundColor: "var(--secondary-bg)", 
   },
 
   buttonHover: {
-    backgroundColor: "#FFA07A", // Hover color
+    backgroundColor: "var(--hover-accent)", 
     transform: "translateY(-2px)",
   },
 
@@ -434,7 +431,7 @@ const styles = {
     right: "5px",
     transform: "translateY(-50%)",
     fontSize: "4rem",
-    color: "#0077cc",
+    color: "#FFFFFF",
     cursor: "pointer",
     zIndex: 2,
   },
@@ -445,7 +442,7 @@ const styles = {
     left: "5px",
     transform: "translateY(-50%)",
     fontSize: "4rem",
-    color: "white",
+    color: "#FFFFFF",
     cursor: "pointer",
     zIndex: 2,
   },

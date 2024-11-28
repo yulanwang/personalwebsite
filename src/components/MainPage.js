@@ -5,6 +5,7 @@ import ExperienceAndExtracurriculars from "./ExperienceAndExtracurriculars";
 import Contact from "./Contact";
 
 const MainPage = () => (
+    
   <div>
     {/* About Me Section */}
     <section id="bio">

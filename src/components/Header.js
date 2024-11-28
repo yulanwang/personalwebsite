@@ -74,8 +74,8 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     background: "#FFFFFF", // Clean white background
-    padding: "1rem 0",
-    borderBottom: "2px solid #333",
+    padding: "0.3rem 0",
+    borderBottom: "2px solid #e0e0e0",
   },
   title: {
     fontSize: "2rem",
@@ -92,7 +92,7 @@ const styles = {
 
   link: {
     textDecoration: "none",
-    color: "#A062D0", // purple
+    color: "var(--dark-text)",
     fontWeight: "bold",
     textTransform: "uppercase",
     letterSpacing: "1px",
@@ -102,7 +102,7 @@ const styles = {
   },
 
   hoverLink: {
-    color: "rgb(255, 79, 0)", // Highlight on hover (orange from palette)
+    color: "var(--hover-accent)", // Highlight on hover (orange from palette)
     transform: "scale(1.1)", // Slight zoom effect
   },
 };

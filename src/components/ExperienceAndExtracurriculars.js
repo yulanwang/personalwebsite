@@ -1,6 +1,7 @@
 import React from "react";
 import experiences from "../data/experiences";
 import extracurriculars from "../data/extracurriculars";
+import "../App.css";
 
 const ExperienceAndExtracurriculars = () => (
   <section style={styles.page}>
@@ -40,22 +41,22 @@ const styles = {
   page: {
     padding: "3rem 2rem",
     fontFamily: "'DM Sans', sans-serif",
-    backgroundColor: "#F9F4F0", // Soft beige
+    backgroundColor: "#FFFFFF", // Soft beige
     lineHeight: "1.8",
     color: "#22222", // Timeless dark
   },
   section: {
     marginBottom: "4rem",
     padding: "1rem",
-    backgroundColor: "#FFFAF5", // Light pastel
+    backgroundColor: "#FFFFFF", // Light pastel
     borderRadius: "8px",
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+
   },
   heading: {
     fontSize: "2rem",
-    color: "#A062D0", // Deep purple for emphasis
+    color: "var(--dark-text)", 
     marginBottom: "1.5rem",
-    borderBottom: "2px solid #EAE7DC",
+    borderBottom: "2px solid #e0e0e0",
     paddingBottom: "0.5rem",
     fontWeight: 700,
   },
@@ -64,39 +65,40 @@ const styles = {
     padding: 0,
     margin: 0,
   },
+
   item: {
     marginBottom: "2rem",
     padding: "1rem",
     borderRadius: "5px",
     transition: "background-color 0.3s ease, transform 0.3s ease",
-    backgroundColor: "#34A5A5", // Bright teal for card background
-    color: "#FFFFFF", // Contrast text color
+    backgroundColor: "var(--light-text)", 
+    color: "var(--dark-text)", // Contrast text color
 
   },
   itemHover: {
-    backgroundColor: "rgb(255, 79, 0)", // Highlighted orange on hover
+    backgroundColor: "var(--secondary-bg)", // Highlighted orange on hover
     transform: "translateY(-5px)", // Subtle lift effect
   },
   title: {
     fontSize: "1.5rem",
     marginBottom: "0.5rem",
-    color: "#FFFFFF", // White text for titles
+    color: "var(--dark-text)",  // White text for titles
     fontWeight: 700,
   },
   text: {
     fontSize: "1rem",
-    color: "#FFFFFF",
+    color: "var(--dark-text)", 
     marginBottom: "0.5rem",
   },
   timeline: {
     fontSize: "0.9rem",
     fontStyle: "italic",
-    color: "#F0E4FF", 
+    color: "var(--dark-text)", 
   },
   involvement: {
     fontSize: "0.9rem",
     fontStyle: "italic",
-    color: "#F0E4FF", 
+    color: "var(--dark-text)", 
   },
 };
 
