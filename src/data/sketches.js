@@ -172,7 +172,7 @@ const sketches = [
     },
     {
         id: 25, 
-        title: "Arch de Triomphe",
+        title: "Arc de Triomphe",
         description: "I liked the shading I did, used the new grey pens I got.",
         imageUrl: "/img/sketchbook/arc-de-triomphe.jpeg",
         referenceImage: null, 
